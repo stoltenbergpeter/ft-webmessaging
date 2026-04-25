@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Franklin Templeton | Sample Page</title>
+  <style>
+    :root {
+      --ft-green: #0f5132;
+      --ft-green-dark: #0a3b24;
+      --ft-gold: #c8a96b;
+      --ft-cream: #f7f4ee;
+      --ft-text: #1f2937;
+      --ft-muted: #6b7280;
+      --ft-white: #ffffff;
+      --ft-border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ft-text);
+      background: var(--ft-white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--ft-border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--ft-green-dark);
+      letter-spacing: 0.3px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--ft-gold), var(--ft-green));
+      box-shadow: 0 4px 14px rgba(15, 81, 50, 0.18);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      color: var(--ft-muted);
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--ft-cream) 0%, #ffffff 55%, #eef5f0 100%);
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--ft-border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(200, 169, 107, 0.14);
+      color: var(--ft-green-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.05;
+      color: var(--ft-green-dark);
+    }
+
+    .hero p {
+      margin: 0 0 24px;
+      font-size: 18px;
+      color: #374151;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--ft-green);
+      color: var(--ft-white);
+    }
+
+    .btn-primary:hover {
+      background: var(--ft-green-dark);
+    }
+
+    .btn-secondary {
+      background: var(--ft-white);
+      border-color: var(--ft-border);
+      color: var(--ft-text);
+    }
+
+    .btn-secondary:hover {
+      border-color: #cfd4dc;
+      background: #fafafa;
+    }
+
+    .hero-card {
+      background: var(--ft-white);
+      border: 1px solid var(--ft-border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 45px rgba(17, 24, 39, 0.08);
+    }
+
+    .metric {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .metric strong {
+      font-size: 34px;
+      color: var(--ft-green-dark);
+    }
+
+    .metric span {
+      color: var(--ft-muted);
+      font-size: 14px;
+    }
+
+    .card-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .card-list li {
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #f9fafb;
+      border: 1px solid var(--ft-border);
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: 32px;
+      color: var(--ft-green-dark);
+    }
+
+    .section p.lead {
+      margin: 0 0 28px;
+      color: var(--ft-muted);
+      max-width: 760px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--ft-white);
+      border: 1px solid var(--ft-border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.04);
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--ft-green-dark);
+    }
+
+    .cta {
+      padding: 32px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--ft-green-dark), var(--ft-green));
+      color: var(--ft-white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    footer {
+      border-top: 1px solid var(--ft-border);
+      padding: 24px 0 40px;
+      color: var(--ft-muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <span>Franklin Templeton</span>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#solutions">Solutions</a>
+        <a href="#insights">Insights</a>
+        <a href="#support">Support</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Sample Experience</div>
+          <h1>Helping clients plan with confidence.</h1>
+          <p>
+            This sample page shows how a Franklin Templeton-style website could present
+            investment resources, client support, and a live chat experience powered by Genesys.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#support">Get support</a>
+            <a class="btn btn-secondary" href="#insights">Explore insights</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Highlights">
+          <div class="metric">
+            <strong>24/7</strong>
+            <span>digital support availability</span>
+          </div>
+          <ul class="card-list">
+            <li><strong>Investor Help</strong><br />Find answers to account and service questions.</li>
+            <li><strong>Market Insights</strong><br />Surface timely content and portfolio perspectives.</li>
+            <li><strong>Embedded Chat</strong><br />Connect visitors with a secure messaging experience.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="solutions">
+      <div class="container">
+        <h2>Solutions built around investor needs</h2>
+        <p class="lead">
+          From long-term planning to digital service experiences, this sample layout is designed
+          to feel polished, trustworthy, and easy to navigate.
+        </p>
+        <div class="grid-3">
+          <div class="info-card">
+            <h3>Retirement Planning</h3>
+            <p>Support educational journeys with approachable content and direct assistance options.</p>
+          </div>
+          <div class="info-card">
+            <h3>Wealth Strategies</h3>
+            <p>Showcase key product areas, thought leadership, and personalized pathways for clients.</p>
+          </div>
+          <div class="info-card">
+            <h3>Client Service</h3>
+            <p>Offer self-service, searchable help, and live chat escalation within the same page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="insights">
+      <div class="container">
+        <div class="cta" id="support">
+          <div>
+            <h2 style="margin: 0; color: white;">Need help right away?</h2>
+            <p>The chat widget loads automatically and can be used for support or guided journeys.</p>
+          </div>
+          <a class="btn btn-secondary" href="#contact">Talk to us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p><strong>Sample page only.</strong> Replace text, branding assets, disclosures, and navigation with your production content.</p>
+    </div>
+  </footer>
+
+  <!-- Genesys Chat Widget -->
+  <script type="text/javascript" charset="utf-8">
+    (function (g, e, n, es, ys) {
+      g['_genesysJs'] = e;
+      g[e] = g[e] || function () {
+        (g[e].q = g[e].q || []).push(arguments)
+      };
+      g[e].t = 1 * new Date();
+      g[e].c = es;
+      ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+    })(window, 'Genesys', 'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
+      environment: 'prod-usw2',
+      deploymentId: '2477a6a5-d117-4713-9c04-dff1a833ce7c'
+    });
+  </script>
+</body>
+</html>
