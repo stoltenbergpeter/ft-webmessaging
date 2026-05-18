@@ -6,14 +6,32 @@
   <title>Franklin Templeton | Sample Page</title>
   <style>
     :root {
-      --ft-green: #0f5132;
-      --ft-green-dark: #0a3b24;
-      --ft-gold: #c8a96b;
-      --ft-cream: #f7f4ee;
-      --ft-text: #1f2937;
-      --ft-muted: #6b7280;
+      /* Franklin Templeton primary blues */
+      --ft-blue: #002eb8;
+      --ft-blue-dark: #001f62;
+      --ft-blue-4: #3b5fc4;
+      --ft-blue-3: #6a95d3;
+      --ft-blue-2: #aabfe2;
+      --ft-blue-1: #e4ecf4;
+
+      /* Franklin Templeton secondary teals */
+      --ft-teal: #1e7a75;
+      --ft-teal-dark: #093d44;
+      --ft-teal-3: #52a89f;
+      --ft-teal-2: #96ccc8;
+      --ft-teal-1: #d9f4f2;
+
+      /* Franklin Templeton neutrals */
+      --ft-gray: #293438;
+      --ft-gray-4: #606668;
+      --ft-gray-3: #939596;
+      --ft-gray-2: #c0c3c4;
+      --ft-gray-1: #ebeced;
+
       --ft-white: #ffffff;
-      --ft-border: #e5e7eb;
+      --ft-border: #ebeced;
+      --ft-text: #293438;
+      --ft-muted: #606668;
     }
 
     * {
@@ -60,7 +78,7 @@
       align-items: center;
       gap: 12px;
       font-weight: 700;
-      color: var(--ft-green-dark);
+      color: var(--ft-blue-dark);
       letter-spacing: 0.3px;
     }
 
@@ -68,8 +86,8 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, var(--ft-gold), var(--ft-green));
-      box-shadow: 0 4px 14px rgba(15, 81, 50, 0.18);
+      background: radial-gradient(circle at 30% 30%, var(--ft-teal-2), var(--ft-blue));
+      box-shadow: 0 4px 14px rgba(0, 46, 184, 0.22);
     }
 
     .nav-links {
@@ -80,8 +98,12 @@
       flex-wrap: wrap;
     }
 
+    .nav-links a:hover {
+      color: var(--ft-blue);
+    }
+
     .hero {
-      background: linear-gradient(135deg, var(--ft-cream) 0%, #ffffff 55%, #eef5f0 100%);
+      background: linear-gradient(135deg, var(--ft-blue-1) 0%, #ffffff 54%, var(--ft-teal-1) 100%);
       padding: 72px 0 56px;
       border-bottom: 1px solid var(--ft-border);
     }
@@ -97,8 +119,8 @@
       display: inline-block;
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(200, 169, 107, 0.14);
-      color: var(--ft-green-dark);
+      background: var(--ft-teal-1);
+      color: var(--ft-teal-dark);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.6px;
@@ -110,13 +132,13 @@
       margin: 0 0 16px;
       font-size: clamp(36px, 6vw, 56px);
       line-height: 1.05;
-      color: var(--ft-green-dark);
+      color: var(--ft-blue-dark);
     }
 
     .hero p {
       margin: 0 0 24px;
       font-size: 18px;
-      color: #374151;
+      color: var(--ft-gray);
       max-width: 680px;
     }
 
@@ -138,23 +160,23 @@
     }
 
     .btn-primary {
-      background: var(--ft-green);
+      background: var(--ft-blue);
       color: var(--ft-white);
     }
 
     .btn-primary:hover {
-      background: var(--ft-green-dark);
+      background: var(--ft-blue-dark);
     }
 
     .btn-secondary {
       background: var(--ft-white);
-      border-color: var(--ft-border);
-      color: var(--ft-text);
+      border-color: var(--ft-gray-2);
+      color: var(--ft-blue-dark);
     }
 
     .btn-secondary:hover {
-      border-color: #cfd4dc;
-      background: #fafafa;
+      border-color: var(--ft-blue-3);
+      background: var(--ft-blue-1);
     }
 
     .hero-card {
@@ -162,7 +184,7 @@
       border: 1px solid var(--ft-border);
       border-radius: 20px;
       padding: 24px;
-      box-shadow: 0 20px 45px rgba(17, 24, 39, 0.08);
+      box-shadow: 0 20px 45px rgba(41, 52, 56, 0.1);
     }
 
     .metric {
@@ -174,7 +196,7 @@
 
     .metric strong {
       font-size: 34px;
-      color: var(--ft-green-dark);
+      color: var(--ft-blue);
     }
 
     .metric span {
@@ -193,8 +215,12 @@
     .card-list li {
       padding: 14px 16px;
       border-radius: 12px;
-      background: #f9fafb;
+      background: var(--ft-blue-1);
       border: 1px solid var(--ft-border);
+    }
+
+    .card-list strong {
+      color: var(--ft-blue-dark);
     }
 
     .section {
@@ -204,7 +230,7 @@
     .section h2 {
       margin: 0 0 12px;
       font-size: 32px;
-      color: var(--ft-green-dark);
+      color: var(--ft-blue-dark);
     }
 
     .section p.lead {
@@ -224,19 +250,28 @@
       border: 1px solid var(--ft-border);
       border-radius: 18px;
       padding: 24px;
-      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.04);
+      box-shadow: 0 10px 24px rgba(41, 52, 56, 0.06);
+      border-top: 4px solid var(--ft-blue);
+    }
+
+    .info-card:nth-child(2) {
+      border-top-color: var(--ft-teal);
+    }
+
+    .info-card:nth-child(3) {
+      border-top-color: var(--ft-blue-4);
     }
 
     .info-card h3 {
       margin-top: 0;
       margin-bottom: 10px;
-      color: var(--ft-green-dark);
+      color: var(--ft-blue-dark);
     }
 
     .cta {
       padding: 32px;
       border-radius: 24px;
-      background: linear-gradient(135deg, var(--ft-green-dark), var(--ft-green));
+      background: linear-gradient(135deg, var(--ft-blue-dark), var(--ft-blue));
       color: var(--ft-white);
       display: flex;
       align-items: center;
@@ -247,7 +282,7 @@
 
     .cta p {
       margin: 8px 0 0;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.9);
     }
 
     footer {
@@ -255,6 +290,11 @@
       padding: 24px 0 40px;
       color: var(--ft-muted);
       font-size: 14px;
+      background: var(--ft-gray-1);
+    }
+
+    footer strong {
+      color: var(--ft-gray);
     }
 
     @media (max-width: 900px) {
