@@ -409,5 +409,43 @@
       deploymentId: '2477a6a5-d117-4713-9c04-dff1a833ce7c'
     });
   </script>
+
+  <!-- Quarterly Statement Delay Notice -->
+  <script type="text/javascript">
+    (function () {
+      // Set to false when quarterly statements are no longer delayed.
+      const quarterlyStatementNoticeEnabled = true;
+      let noticeRequested = false;
+
+      // Wait for the Toaster plugin before requesting the notice.
+      Genesys("subscribe", "Toaster.ready", function () {
+        if (!quarterlyStatementNoticeEnabled || noticeRequested) {
+          return;
+        }
+
+        // Request the notice only once during this page load.
+        noticeRequested = true;
+
+        Genesys(
+          "command",
+          "Toaster.open",
+          {
+            title: "Quarterly Statement Delay",
+            body: "Quarterly statements are currently delayed. We apologize for the inconvenience and appreciate your patience.",
+            buttons: {
+              type: "unary",
+              primary: "OK"
+            }
+          },
+          function () {
+            console.log("Quarterly statement delay notice opened.");
+          },
+          function (error) {
+            console.error("Unable to open quarterly statement delay notice:", error);
+          }
+        );
+      });
+    })();
+  </script>
 </body>
 </html>
